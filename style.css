@@ -1,0 +1,201 @@
+/* Base Styles with Cyberpunk Theme */
+:root {
+  --primary: #00f0ff;
+  --secondary: #ff2d75;
+  --accent: #ffe600;
+  --dark: #0a0a12;
+  --darker: #050508;
+  --light: #f0f0f0;
+}
+
+@font-face {
+  font-family: 'Cyber';
+  src: url('https://fonts.cdnfonts.com/css/cyberpunk') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--darker);
+  color: var(--light);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(10, 10, 18, 0.85);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--primary);
+  position: relative;
+  padding: 30px;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary);
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Cyber', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--primary), 
+    var(--secondary), 
+    transparent);
+  border-radius: 3px;
+}
+
+/* Chat Box */
+.chat-box {
+  height: 500px;
+  overflow-y: auto;
+  padding: 20px;
+  margin-bottom: 25px;
+  background: rgba(15, 15, 25, 0.6);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Custom Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: rgba(0, 240, 255, 0.05);
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Message Bubbles */
+.message {
+  max-width: 80%;
+  padding: 18px 22px;
+  border-radius: 20px;
+  line-height: 1.6;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: var(--secondary);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-bottom-left-radius: 5px;
+  color: var(--light);
+}
+
+/* Input Form */
+#chat-form {
+  display: flex;
+  gap: 15px;
+  position: relative;
+}
+
+#user-input {
+  flex: 1;
+  padding: 18px 25px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(20, 20, 30, 0.8);
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+#user-input:focus {
+  background: rgba(25, 25, 40, 0.9);
+  border-color: var(--primary);
+}
+
+#user-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+/* Button */
+button {
+  padding: 18px 30px;
+  border: none;
+  border-radius: 50px;
+  background: var(--primary);
+  color: var(--dark);
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .chat-box {
+    height: 400px;
+    padding: 15px;
+  }
+  
+  #chat-form {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .message {
+    max-width: 90%;
+    padding: 15px 18px;
+  }
+}
